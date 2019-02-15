@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Metéo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>  
+    <style>
+    h1{
+            font-family:fantasy;
+            text-align: center;
+            
+        }
+    
+    </style>
+</head>
+<body>
+  <div class="container">
+      <br>
+      <h1 >Listes des pays de l'europe </h1>
+    <div class="row">
+         <div id="contenu" class="col-xs-12 col-md-12 col-lg-12">
+         
+         </div>
+    </div>    
+  </div> 
+ <script>
+     var result
+    fetch('https://restcountries.eu/rest/v2/region/europe').then(
+    function(response){
+    response.json().then(function(donne){
+        result = donne
+        var contenu = document.getElementById("contenu")
+        contenus = ""
+        contenus = contenus + "<table class='table table-striped' > "
+        contenus = contenus + "<thead style ='font-family:fantasy;'> "
+        contenus = contenus + "<tr> "
+        contenus = contenus + "<td>"
+        contenus = contenus + "Pays"
+        contenus = contenus + "</td>"
+        contenus = contenus + "<td>"
+        contenus = contenus + "Capital"
+        contenus = contenus + "</td>"
+        contenus = contenus + "<td>"
+        contenus = contenus + "Metéo & Information"
+        contenus = contenus + "</td>"
+        contenus = contenus + "</tr>"
+        contenus = contenus + "</thead> "
+        contenus = contenus + "<tbody style ='color:green'> "
+        for (i=0;i< result.length; i++)
+        {
+
+
+            contenus = contenus + "<tr> " 
+            contenus = contenus + "<td> " 
+            contenus = contenus + " " + result[i].name + " "
+            contenus = contenus + "</td> " 
+            contenus = contenus + "<td> " 
+            contenus = contenus + " " + result[i].capital
+            contenus = contenus + "</td> " 
+            contenus = contenus + "<td> " 
+            contenus = contenus +'<a href="afficheInfo.html?id ='+result[i].name+' && idE='+result[i].capital+'>Metéo</a>'
+            contenus = contenus + "</td> " 
+            contenus = contenus + "</tr> "
+        }
+        contenus = contenus + "</tbody> "
+        contenus = contenus + "</table> "
+        contenu.innerHTML = contenus
+
+        })  
+    })
+    
+    
+ </script>
+</body>
+</html>
