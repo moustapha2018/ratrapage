@@ -1,5 +1,4 @@
 # ratrapage
-Api
 J'ai utilisé deux sources de données
 La première source est une API qui contient toutes les capitales de l'europe 
 La dernière source de données c'est la metéo.
@@ -7,7 +6,7 @@ J'ai utilisé ces deux sources de données car elle sont disponible pour tout le
 ya aucune démarche à faire comme problème d'obtenir la clef par exemple. 
 
 Format:
-Les données de ces deux API sont au format Json
+Les données de ces deux API sont au format Json 
 
 
 Utilisation:
