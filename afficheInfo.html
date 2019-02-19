@@ -91,7 +91,7 @@
         }) 
     })
     var result
-    fetch('http://api.wunderground.com/api/50a65432f17cf542/conditions/q/'+pays+'/'+ville+'.json').then(
+    fetch('https://api.wunderground.com/api/50a65432f17cf542/conditions/q/'+pays+'/'+ville+'.json').then(
     function(response){
     response.json().then(function(donne){
         meteo = donne
